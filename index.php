@@ -1,5 +1,11 @@
 <?php require 'inc/data/products.php'; ?>
 <?php require 'inc/head.php'; ?>
+<?php
+if (isset($_GET['add_to_cart'])) {
+    $id = $_GET['add_to_cart'];
+    isset($_SESSION['cookies'][$id]) ? $_SESSION['cookies'][$id] += 1 : $_SESSION['cookies'][$id] = 1;
+}
+?>
 <section class="cookies container-fluid">
     <div class="row">
         <?php foreach ($catalog as $id => $cookie) { ?>
